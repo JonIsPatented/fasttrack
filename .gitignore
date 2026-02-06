@@ -26,3 +26,7 @@ venv
 *.njsproj
 *.sln
 *.sw?
+
+# Virtual Environment
+venv/
+.venv/
