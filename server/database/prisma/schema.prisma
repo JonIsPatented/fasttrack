@@ -51,6 +51,7 @@ model Manufacturer {
   manufacturer_id Int       @id @default(autoincrement())
   name            String
   founded_year    Int
+  closed_year     Int?
   country_code    String
   website         String
   coasters        Coaster[]
