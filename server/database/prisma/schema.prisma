@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Coaster {
+  coaster_id              Int                   @id @default(autoincrement())
+  name                    String
+  material                Material              @relation(fields: [material_id], references: [material_id])
+  material_id             Int
+  length_ft               Float
+  height_ft               Float
+  top_speed_mph           Float
+  max_g_force             Float
+  first_year_construction Int
+  first_year_operation    Int
+  home_park               Park                  @relation(fields: [home_park_id], references: [park_id])
+  home_park_id            Int
+  manufacturer            Manufacturer          @relation(fields: [manufacturer_id], references: [manufacturer_id])
+  manufacturer_id         Int
+  track_colors            CoasterTrackColor[]
+  support_colors          CoasterSupportColor[]
+  coasterTraits           CoasterTrait[]
+}
+
+model Material {
+  material_id Int       @id @default(autoincrement())
+  name        String
+  description String
+  coasters    Coaster[]
+}
+
+model Park {
+  park_id        Int       @id @default(autoincrement())
+  name           String
+  city           String
+  state_province String
+  country_code   String
+  website        String
+  coasters       Coaster[]
+}
+
+model Manufacturer {
+  manufacturer_id Int       @id @default(autoincrement())
+  name            String
+  founded_year    Int
+  country_code    String
+  website         String
+  coasters        Coaster[]
+}
+
+model Color {
+  color_id         Int                   @id @default(autoincrement())
+  name             String
+  hex              String
+  coaster_tracks   CoasterTrackColor[]
+  coaster_supports CoasterSupportColor[]
+}
+
+model CoasterTrait {
+  trait_id      Int       @id @default(autoincrement())
+  coaster       Coaster   @relation(fields: [coaster_id], references: [coaster_id])
+  coaster_id    Int
+  trait_type    TraitType @relation(fields: [trait_type_id], references: [trait_type_id])
+  trait_type_id Int
+  metadata      Json
+}
+
+model TraitType {
+  trait_type_id  Int            @id @default(autoincrement())
+  name           String
+  description    String
+  coaster_traits CoasterTrait[]
+}
+
+model CoasterTrackColor {
+  coaster    Coaster @relation(fields: [coaster_id], references: [coaster_id])
+  coaster_id Int
+  color      Color   @relation(fields: [color_id], references: [color_id])
+  color_id   Int
+
+  @@id([coaster_id, color_id])
+}
+
+model CoasterSupportColor {
+  coaster    Coaster @relation(fields: [coaster_id], references: [coaster_id])
+  coaster_id Int
+  color      Color   @relation(fields: [color_id], references: [color_id])
+  color_id   Int
+
+  @@id([coaster_id, color_id])
+}
