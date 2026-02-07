@@ -4,15 +4,22 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from typing import Any, Mapping, Callable
+from pandas._typing import DtypeArg
+
 SCRIPT_DIR = Path(__file__).resolve().parent
 DATABASE_DIR = SCRIPT_DIR.parent
 
 DB_PATH = DATABASE_DIR / "database.db"
 RAWDATA_DIR = SCRIPT_DIR / "rawdata"
 
-def load_csv(path: Path) -> pd.DataFrame:
+def load_csv(
+    path: Path,
+    dtype: DtypeArg | None = None,
+    converters: Mapping[str, Callable[[str], Any]] | None = None,
+) -> pd.DataFrame:
     # Load a CSV file into a pandas DataFrame
-    return pd.read_csv(path)
+    return pd.read_csv(path, dtype=dtype, converters=converters)
 
 
 def fill_blank_json(
@@ -52,10 +59,13 @@ def import_csv_to_sqlite(
     csv_path: Path,
     rename: dict[str, str] | None = None,
     drop: list[str] | None = None,
+    dtype: DtypeArg | None = None,
+    converters: Mapping[str, Callable[[str], Any]] | None = None,
 ) -> int:
     # Load and normalize the CSV data
-    df = load_csv(csv_path)
+    df = load_csv(csv_path, dtype=dtype, converters=converters)
     df = prepare_df(df, rename=rename, drop=drop)
+
 
     if df.empty:
         print(f"{table}: {csv_path} -> 0 rows")
@@ -95,7 +105,10 @@ def import_csv_to_sqlite(
 def main() -> None:
     import_csv_to_sqlite("Material", RAWDATA_DIR / "Rollercoaster CSV - Material.csv")
     import_csv_to_sqlite("Park", RAWDATA_DIR / "Rollercoaster CSV - Park.csv")
-    import_csv_to_sqlite("Manufacturer", RAWDATA_DIR / "Rollercoaster CSV - Manufacturer.csv")
+
+    import_csv_to_sqlite("Manufacturer",RAWDATA_DIR / "Rollercoaster CSV - Manufacturer.csv",dtype={"country_code": "string"},)
+
+
     import_csv_to_sqlite("Color", RAWDATA_DIR / "Rollercoaster CSV - Color.csv")
     import_csv_to_sqlite("TraitType", RAWDATA_DIR / "Rollercoaster CSV - Trait_Type.csv")
 
