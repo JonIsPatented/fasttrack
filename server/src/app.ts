@@ -5,6 +5,7 @@ import Database from 'better-sqlite3'
 import coasterRouter from './routes/coasters.ts'
 import colorRouter from './routes/colors.ts'
 import materialRouter from './routes/materials.ts'
+import manufacturerRouter from './routes/manufacturers.ts'
 import parkRouter from './routes/parks.ts'
 import traitRouter from './routes/traits.ts'
 
@@ -22,6 +23,7 @@ app.use(express.json())
 app.use('/api/coasters', coasterRouter)
 app.use('/api/colors', colorRouter)
 app.use('/api/materials', materialRouter)
+app.use('/api/manufacturers', manufacturerRouter)
 app.use('/api/parks', parkRouter)
 app.use('/api/traits', traitRouter)
 
