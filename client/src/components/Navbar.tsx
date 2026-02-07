@@ -5,11 +5,11 @@ function Navbar() {
     const navLocations = [
         {
             Name: "Home",
-            Link: "#",
+            Link: "#Home",
         },
         {
             Name: "About",
-            Link: "#",
+            Link: "#About",
         },
 
         {
@@ -25,7 +25,7 @@ function Navbar() {
     const navItems = navLocations.map((item, index) => {
         return(
         <li key={index} >
-            <a href={item.Link} onClick={() => {hideNav()}}>
+            <a href={item.Link} onClick={(e) => {hideNav()}}>
                 <p>{item.Name}</p>
             </a>
         </li>

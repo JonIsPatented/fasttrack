@@ -9,7 +9,7 @@ import '../styles/Landing.css'
 
 function Landing(){
   return(
-    <section className="landingPage">
+    <section className="landingPage" id="Home">
       <Canvas 
         className="canvas" 
         camera={{near: 0.1, far: 1000, position: [20, 20, 4] }}
