@@ -68,7 +68,7 @@ def import_csv_to_sqlite(
 
         before = conn.total_changes
 
-        # Append rows to the existing table
+        # Replace rows to potentially an existing table
         df.to_sql(
             name=table,
             con=conn,
