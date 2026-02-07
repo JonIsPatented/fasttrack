@@ -5,6 +5,7 @@ import Database from 'better-sqlite3'
 import coasterRouter from './routes/coasters.ts'
 import colorRouter from './routes/colors.ts'
 import materialRouter from './routes/materials.ts'
+import manufacturerRouter from './routes/manufacturers.ts'
 
 const app = express()
 const PORT = 3000
@@ -20,6 +21,7 @@ app.use(express.json())
 app.use('/api/coasters', coasterRouter)
 app.use('/api/colors', colorRouter)
 app.use('/api/materials', materialRouter)
+app.use('/api/manufacturers', manufacturerRouter)
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`)
