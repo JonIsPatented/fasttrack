@@ -6,25 +6,61 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.CoastersDisplay {
+  gap: 50px;
 }
 
 .CoastersContent{
   flex: 1;
+  overflow: hidden;
+  
 }
 
-.Coasters ul {
-  list-style-type: none;
-  background-color: #eeeeee;
+.Coasters h1 {
+  font-size: 12em;
+}
+
+.CoastersContent div {
+  background-color: #F7F8F9;
   width: 60%;
-  height: 50%;
+  height: 70%;
   border-radius: 80px;
   padding: 60px;
+  overflow-y: scroll;
+  font-size: 3em;
+  
+  display: flex;
+  filter: drop-shadow(20px 10px 4px #eeeeee);
+
+}
+
+.CoastersContent ul {
+  width: 100%;
+  height: 100%;
+  list-style-type: none;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.Coasters ul li {
+  height: 60px;
+  padding: 6px;
+  border-radius: 16px;
+  border-bottom: 3px white solid;
+
+}
+.Coasters ul li:hover{
+  background-color: #EBEBED; 
 }
 
 
 .Coasters div img {
   height: 700px;
-  padding: 200px;
+  padding-left: 200px;
+  padding-right: 200px;
   border-radius: 40%;
   filter: drop-shadow(20px 10px 4px #eeeeee);
 }

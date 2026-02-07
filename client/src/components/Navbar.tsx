@@ -5,20 +5,20 @@ function Navbar() {
     const navLocations = [
         {
             Name: "Home",
-            Link: "#Home",
+            Link: "/#Home",
         },
         {
             Name: "About",
-            Link: "#About",
+            Link: "/#About",
         },
 
         {
             Name: "Coasters",
-            Link: "#Coasters",
+            Link: "/#Coasters",
         },
         {
-            Name: "Temp",
-            Link: "#",
+            Name: "SignIn",
+            Link: "/#",
         },
     ]
 

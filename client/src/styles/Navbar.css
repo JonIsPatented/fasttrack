@@ -44,7 +44,7 @@ a:hover {
 .bar1, .bar2, .bar3 {
     width: 35px;
     height: 5px;
-    background-color: #f8f7f2;;
+    background-color: #f8f7f2;
     margin: 6px 0;
     border-radius: 2rem;
     transition: 0.4s;
@@ -63,7 +63,7 @@ a:hover {
 
 
 .headerLogo {
-  background-color: #eeeeee;
+  background-color: #F7F8F9;
   border-radius: 25%;
   width: 50px;
   height: 50px;
