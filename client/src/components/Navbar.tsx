@@ -14,7 +14,7 @@ function Navbar() {
 
         {
             Name: "Coasters",
-            Link: "#",
+            Link: "#Coasters",
         },
         {
             Name: "Temp",
