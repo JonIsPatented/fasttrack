@@ -29,7 +29,11 @@ router.get('/', async (req: Request, res: Response) => {
                         color: true
                     }
                 },
-                coasterTraits: true
+                coasterTraits: {
+                    include: {
+                        trait_type: true
+                    }
+                }
             }
         })
         res.json(coasters)
