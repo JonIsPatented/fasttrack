@@ -6,6 +6,7 @@ import coasterRouter from './routes/coasters.ts'
 import colorRouter from './routes/colors.ts'
 import materialRouter from './routes/materials.ts'
 import parkRouter from './routes/parks.ts'
+import traitRouter from './routes/traits.ts'
 
 const app = express()
 const PORT = 3000
@@ -22,6 +23,7 @@ app.use('/api/coasters', coasterRouter)
 app.use('/api/colors', colorRouter)
 app.use('/api/materials', materialRouter)
 app.use('/api/parks', parkRouter)
+app.use('/api/traits', traitRouter)
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`)
