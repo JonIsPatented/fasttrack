@@ -3,6 +3,7 @@ import { PrismaClient } from '@prisma/client'
 import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3'
 import Database from 'better-sqlite3'
 import coasterRouter from './routes/coasters.ts'
+import colorRouter from './routes/colors.ts'
 
 const app = express()
 const PORT = 3000
@@ -16,6 +17,7 @@ const prisma = new PrismaClient({ adapter })
 app.use(express.json())
 
 app.use('/api/coasters', coasterRouter)
+app.use('/api/colors', colorRouter)
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`)
