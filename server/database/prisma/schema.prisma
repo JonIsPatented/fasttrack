@@ -6,6 +6,12 @@ generator client {
   output   = "../generated/prisma"
 }
 
+generator client_py {
+  provider  = "prisma-client-py"
+  interface = "asyncio"
+}
+
+
 datasource db {
   provider = "sqlite"
 }

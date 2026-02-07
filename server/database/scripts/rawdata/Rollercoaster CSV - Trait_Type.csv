@@ -1,0 +1,17 @@
+trait_type_id,name,description
+0,dive,"Cars are short and wide, allowing for a faster ""dive"" down hills."
+1,enclosed,Coaster is indoor.
+2,floorless,Coaster is on top of the tracks but has no floor.
+3,giga,Coaster has at least 300+ foot tall drop.
+4,hyper,Coaster has at least 1 200+ foot tall drop.
+5,inverted,Coaster goes upside down.
+6,launched,"Rather than a chain lift, the ride is launched up its first hill."
+7,onboard sound,Speakers are located on the cars for immersive sound the whole ride.
+8,shuttle,"Also called boomerang, the coaster travels to the end of the track and then travels backwards to the beginning."
+9,sit down,Riders sit while riding.
+10,spinning cars,Cars spin during the ride.
+11,stand up,Riders stand while riding.
+12,suspended,Cars hang below the track.
+13,tilt,"Also called a cliffhanger, a portion of the track stops the train on top and tilts mid ride."
+14,twin,"Coaster has two similar tracks, allowing two trains to run simultaneously and ""race"" each other."
+15,wing,Riders are seated on either side of the track rather than on top of or below it.
