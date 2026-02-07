@@ -52,7 +52,7 @@ trait_id,coaster_id,trait_type_id,metadata
 50,25,5,
 51,25,9,
 52,26,5,
-53,26,7,"{ ""url"": ""https://www.reddit.com/r/rollercoasters/comments/1lu2fys/sirens_curse_full_on_board_audio_synched_with/"", ""caption"": ""audio recorded with apple watch"""
+53,26,7,"{ ""url"": ""https://www.reddit.com/r/rollercoasters/comments/1lu2fys/sirens_curse_full_on_board_audio_synched_with/"", ""caption"": ""audio recorded with apple watch"" }"
 54,26,9,
 55,26,13,
 56,27,5,
