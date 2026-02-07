@@ -18,9 +18,13 @@ function Coasters (){
 
   
   let coasterElement = coasterSort.map(item => (
-  <li key={item.coaster_id} onClick={viewCoaster(this)} ><a href='/view-coaster'>{item.name}</a></li>
-  ));
-  if (isLoading) coasterElement = <li>Loading...</li>;
+  <li 
+    key={item.coaster_id} 
+    onClick={() => localStorage.setItem("Coaster", JSON.stringify(item))}
+  >
+    <a href='/view-coaster'>{item.name}</a>
+  </li>
+));  if (isLoading) coasterElement = <li>Loading...</li>;
   if (error) coasterElement =  <li>Error: {error.message}</li>; 
   return (
     <section className="Coasters" id="Coasters">
@@ -40,9 +44,6 @@ function Coasters (){
   )
 }
 
-function viewCoaster(item){
-  console.log(item)
-}
 
 export default Coasters;
 

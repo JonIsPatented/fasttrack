@@ -20,3 +20,7 @@
   filter: drop-shadow(20px 10px 4px #eeeeee);
 
 }
+
+.CoasterViewer h1 {
+  font-size: 12em;
+}

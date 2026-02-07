@@ -1,0 +1,23 @@
+
+.trait-card {
+  background: #F7F8F9;
+  border-radius: 40px;
+  width: 200px;
+  max-height: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.trait-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #757575;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.trait-value {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #212121;
+}
