@@ -1,0 +1,22 @@
+.CoasterViewer {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
+.CoasterViewer div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.CoasterViewer img {
+  max-width: 1000px;
+  width: auto;
+
+  border-radius: 60px;
+  filter: drop-shadow(20px 10px 4px #eeeeee);
+
+}

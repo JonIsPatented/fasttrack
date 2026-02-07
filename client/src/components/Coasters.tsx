@@ -16,9 +16,9 @@ function Coasters (){
   
   const coasterSort = coasters.sort((a,b) => a.name > b.name)
 
-
+  
   let coasterElement = coasterSort.map(item => (
-  <li key={item.coaster_id}>{item.name}</li>
+  <li key={item.coaster_id} ><a href='/view-coaster'>{item.name}</a></li>
   ));
   if (isLoading) coasterElement = <li>Loading...</li>;
   if (error) coasterElement =  <li>Error: {error.message}</li>; 
@@ -40,4 +40,10 @@ function Coasters (){
   )
 }
 
+function viewCoaster(item){
+  console.log(item)
+}
+
 export default Coasters;
+
+

@@ -1,6 +1,17 @@
+import '../styles/CoasterView.css'
+import SirensCurse from '../assets/SirensCurse.jpeg'
 function CoasterViewer(){
   return(
-  <h1>Hello World!</h1>
+    <section className="CoasterViewer">
+      <div>
+        <p>Test</p>
+      </div>
+      <div>
+        <img src={SirensCurse}/> 
+      </div>
+    </section>
+
+    
   )
 }
 
