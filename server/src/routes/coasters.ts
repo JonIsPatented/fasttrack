@@ -14,7 +14,24 @@ const prisma = new PrismaClient({ adapter })
 
 router.get('/', async (req: Request, res: Response) => {
     try {
-        const coasters = await prisma.coaster.findMany()
+        const coasters = await prisma.coaster.findMany({
+            include: {
+                manufacturer: true,
+                material: true,
+                home_park: true,
+                track_colors: {
+                    include: {
+                        color: true
+                    }
+                },
+                support_colors: {
+                    include: {
+                        color: true
+                    }
+                },
+                coasterTraits: true
+            }
+        })
         res.json(coasters)
     } catch (error) {
         res.status(500).json({ error: 'Something went wrong fetching coasters' })
