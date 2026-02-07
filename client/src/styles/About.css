@@ -1,0 +1,26 @@
+.About {
+  display: flex;
+}
+
+.About div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 100px
+
+}
+
+.About h1 {
+  font-size: 12em;
+}
+
+.About p {
+  font-size: 2em;
+}
+
+.About img {
+  padding-right: 100px;
+  width: 40%;
+  height: auto;
+}
