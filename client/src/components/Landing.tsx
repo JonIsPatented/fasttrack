@@ -3,18 +3,18 @@ import * as THREE from 'three'
 import { Canvas } from '@react-three/fiber'
 import {OrbitControls, Bounds, Environment} from '@react-three/drei'
 
-import Loader from './Loader.tsx'
 import Coaster from './Coaster.tsx'
+import '../styles/Landing.css'
 
 
 function Landing(){
   return(
-    <div className="landingPage">
+    <section className="landingPage">
       <Canvas 
         className="canvas" 
-        camera={{near: 0.1, far: 1000, position: [20, 20, 0]}}
+        camera={{near: 0.1, far: 1000, position: [20, 20, 4] }}
       >
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={null}>
          
           <Bounds fit clip observe margin='.3'>
             <Coaster/>
@@ -24,8 +24,7 @@ function Landing(){
         </Suspense>
 
       </Canvas>
-
-    </div>
+    </section>
   )
 }
 export default Landing;
