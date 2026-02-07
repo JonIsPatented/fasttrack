@@ -10,11 +10,11 @@ trait_id,coaster_id,trait_type_id,metadata
 8,4,9,
 9,5,1,
 10,5,5,
-11,5,6,
+11,5,6,"{ ""launch_duration_s"": 4, ""launch_speed"": 54 }"
 12,5,9,
 13,6,12,
 14,7,5,
-15,7,6,"{ ""launch_duration_s"": 4, ""launch_speed"": 54 }"
+15,7,6,"{ ""launch_duration_s"": 3, ""launch_speed"": 40 }"
 16,7,9,
 17,7,12,
 18,8,9,
