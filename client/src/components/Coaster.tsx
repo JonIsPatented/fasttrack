@@ -31,6 +31,7 @@ type GLTFResult = GLTF & {
     rollercoastercart: THREE.MeshStandardMaterial
     build_gen_1: THREE.MeshStandardMaterial
     build_gen_2: THREE.MeshStandardMaterial
+    ['Material.001']: THREE.MeshStandardMaterial
   }
   animations: GLTFAction[]
 }
@@ -38,7 +39,25 @@ type GLTFResult = GLTF & {
 export default function Model(props: JSX.IntrinsicElements['group']) {
   const group = React.useRef<THREE.Group>()
   const { nodes, materials, animations } = useGLTF('/Coaster.glb') as GLTFResult
-  const { actions } = useAnimations(animations, group)
+  const { actions } = useAnimations(animations, group);
+
+  React.useEffect(() => {
+  const actionList = Object.values(actions);
+  
+  actionList.forEach((action) => {
+    if (action) {
+      action
+        .reset()
+        .fadeIn(0.5)
+        .play();
+    }
+  });
+
+  return () => {
+    actionList.forEach((action) => action?.fadeOut(0.5));
+  };
+}, [actions]);
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -54,8 +73,10 @@ export default function Model(props: JSX.IntrinsicElements['group']) {
         <mesh name="bumper_car_export_1005" geometry={nodes.bumper_car_export_1005.geometry} material={materials.rollercoastercart} position={[-42.594, 4.228, 60.137]} rotation={[0.138, -0.149, -0.249]} />
         <mesh name="bumper_car_export_1006" geometry={nodes.bumper_car_export_1006.geometry} material={materials.rollercoastercart} position={[-42.234, 4.487, 58.105]} rotation={[0.13, -0.165, -0.249]} />
         <mesh name="Circle023" geometry={nodes.Circle023.geometry} material={materials.build_gen_1} position={[-21.583, -0.921, 60.471]} rotation={[Math.PI, -1.307, Math.PI]} />
+        <mesh name="Text001" geometry={nodes.Text001.geometry} material={materials['Material.001']} position={[-16.565, -0.223, 4.88]} rotation={[Math.PI / 2, 0, -1.463]} scale={25} />
       </group>
     </group>
+
   )
 }
 
