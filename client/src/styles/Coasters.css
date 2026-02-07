@@ -8,6 +8,19 @@
   align-items: center;
 }
 
+.CoastersContent{
+  flex: 1;
+}
+
+.Coasters ul {
+  list-style-type: none;
+  background-color: #eeeeee;
+  width: 60%;
+  height: 50%;
+  border-radius: 80px;
+  padding: 60px;
+}
+
 
 .Coasters div img {
   height: 700px;
