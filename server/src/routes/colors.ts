@@ -42,21 +42,17 @@ router.get('/get', async (req: Request<{}, {}, {}, { verbose: boolean, id: numbe
 
     const { verbose, id } = req.query
 
-    let where: any = {}
-
-    if (id !== null) where.color_id = id
-
     try {
         const colors = await prisma.color.findMany({
             include: {
                 coaster_supports: verbose ? verboseCoasterInclude : true,
                 coaster_tracks: verbose ? verboseCoasterInclude : true
             },
-            where
+            where: id ? { color_id: Number(id) } : {}
         })
         res.json(colors)
     } catch (error) {
-        res.status(500).json({ error: 'Something went wrong fetching coasters' })
+        res.status(500).json({ error: 'Something went wrong fetching colors' })
     }
 })
 
