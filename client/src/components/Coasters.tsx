@@ -18,7 +18,7 @@ function Coasters (){
 
   
   let coasterElement = coasterSort.map(item => (
-  <li key={item.coaster_id} ><a href='/view-coaster'>{item.name}</a></li>
+  <li key={item.coaster_id} onClick={viewCoaster(this)} ><a href='/view-coaster'>{item.name}</a></li>
   ));
   if (isLoading) coasterElement = <li>Loading...</li>;
   if (error) coasterElement =  <li>Error: {error.message}</li>; 
